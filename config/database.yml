@@ -74,7 +74,7 @@ test:
 # URL environment variable explicitly:
 #
   production:
-    url: <%= ENV["MY_APP_DATABASE_URL"] %>
+    url: <%= Rails.application.credentials.production[:database_url] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: <%= Rails.application.credentials.production[:database] %>
-  username: <%= Rails.application.credentials.production[:username]%>
-  password: <%= Rails.application.credentials.production[:password]%>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
