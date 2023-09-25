@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: blogapp_development
+  database: blog_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: blogapp_production
-  username: blogapp
-  password: <%= ENV["BLOGAPP_DATABASE_PASSWORD"] %>
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:username]%>
+  password: <%= Rails.application.credentials.production[:password]%>
